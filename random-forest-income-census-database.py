@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sat Dec  8 22:56:28 2018
+Created on Mon Dec 10 00:42:46 2018
 
 @author: GeisyPC
 """
@@ -33,9 +33,9 @@ previsores = scaler.fit_transform(previsores)
 from sklearn.model_selection  import train_test_split
 previsores_treinamento, previsores_teste, classe_treinamento, classe_teste = train_test_split(previsores, classe, test_size=0.15, random_state=0)
 
-# constroi a tabela de probabilidades
-from sklearn.naive_bayes import GaussianNB
-classificador = GaussianNB()
+# Algoritmo de Random forest (floresta randômica)
+from sklearn.ensemble import RandomForestClassifier
+classificador = RandomForestClassifier(n_estimators=70, criterion='entropy', random_state=0)
 classificador.fit(previsores_treinamento, classe_treinamento)
 previsoes = classificador.predict(previsores_teste)
 

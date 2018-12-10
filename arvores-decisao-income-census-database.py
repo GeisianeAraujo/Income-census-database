@@ -23,9 +23,6 @@ previsores[:, 8] = labelencoder_previsores.fit_transform(previsores[:, 8])
 previsores[:, 9] = labelencoder_previsores.fit_transform(previsores[:, 9])
 previsores[:, 13] = labelencoder_previsores.fit_transform(previsores[:, 13])
 
-onehotencoder = OneHotEncoder(categorical_features = [1,3,5,6,7,8,9,13])
-previsores = onehotencoder.fit_transform(previsores).toarray()
-
 labelencoder_classe = LabelEncoder()
 classe = labelencoder_classe.fit_transform(classe)
 
